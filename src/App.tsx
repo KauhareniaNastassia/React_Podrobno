@@ -1,51 +1,103 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Rating, RatingValueType} from './components/Rating/Rating';
-import {OnOff} from "./components/OnOff/OnOff";
-import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
-import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
-import Accordion from "./components/Accordion/Accordion";
-import {UncontrolledOnOff} from "./components/OnOff/UncontrolledOnOff";
+import {RatingValueType} from './components/Rating/Rating';
+import {action} from "@storybook/addon-actions";
+import {WithoutValue, WithValue} from "./components/Select/AccSelect";
 
-function hello() {
-    debugger
-    alert('Hello IT-KAMASUTRA')
+
+export type ItemType = {
+    title: string
+    value: any
 }
+let items: Array<ItemType> = [
+    {title: 'Nastassia', value: 1},
+    {title: 'Olga', value: 2},
+    {title: 'Lens', value: 3},
+    {title: 'Lesya', value: 4}]
 
-//hello();
-
+let itemsForSelect = [
+    {value: '1', title: 'Minsk'},
+    {value: '2', title: 'Moscow'},
+    {value: '3', title: 'Kiev'},
+]
 
 function App() {
-    console.log("App rendering")
 
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
     let [switchOn, setSwitchOn] = useState<boolean>(false)
+    const [value, setValue] = useState<boolean>(true);
+
+    const callBack = action('accordion mode change event fired')
+    const onClickCallBack = action('some item was clicked')
+
+
+    /*const ModeChanging = () => {
+        return <Accordion titleValue={"Users"}
+                          collapsed={value}
+                          onChange={() => {
+                              setValue(!value)
+                          }}
+                          items={items}
+                          onClick={onClickCallBack}
+        />
+    }*/
 
     return (
         <div className={"App"}>
-            {/* <UncontrolledRating value={1}/>
-            <UncontrolledRating value={2}/>
-            <UncontrolledRating value={3}/>
-            <UncontrolledRating value={4}/>
-            <UncontrolledRating value={5}/>*/}
-            {/* <Rating value={ratingValue} onClick = {setRatingValue} />
-            <Accordion titleValue={"Users"}
-                       collapsed ={accordionCollapsed}
-                       onChange = { () => {setAccordionCollapsed(!accordionCollapsed)}}/>
-            <UncontrolledOnOff on={true} onChange={setSwitchOn}/> {switchOn.toString()}*/}
-
-            <Rating value={ratingValue} onClick = {setRatingValue} />
+            {/*<Rating value={ratingValue} onClick={setRatingValue}/>
             <UncontrolledRating/>
 
-            <OnOff on={switchOn} onChange={(on) => {setSwitchOn(on)}}/>
+            <OnOff on={switchOn} onChange={(on) => {
+                setSwitchOn(on)
+            }}/>
             <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
 
+            <UncontrolledInput/>
+            <Input/>*/}
+            {/*<UncontrolledAccordion titleValue={"Menu"}
+                                   collapsed={true}
+                                   onChange={callBack}
+                                   items={items}
+                                   onClick={onClickCallBack}
+            />*/}
+            {/* //MenuCollapsedMode
+            <Accordion titleValue={"Menu"}
+                       collapsed={true}
+                       onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}
+                       items={items}
+                       onClick={onClickCallBack}
+            />
 
-            <UncontrolledAccordion titleValue={"Menu"}/>
+            //UserUncollapsedMode
             <Accordion titleValue={"Users"}
-                       collapsed ={accordionCollapsed}
-                       onChange = { () => {setAccordionCollapsed(!accordionCollapsed)}}/>
+                       collapsed={false}
+                       onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}
+                       items={items}
+                       onClick={onClickCallBack}
+            />*/}
+            {/*//with value
+            <Select
+                onChange={ () => {} }
+                value={'2'}
+                items={itemsForSelect}/>
+
+            //without value
+            <Select
+                onChange={  () => {}  }
+                items={itemsForSelect}/>*/}
+
+            <WithValue
+                onChange={ () => {} }
+                value={'2'}
+                items={itemsForSelect}
+            />
+
+            <WithoutValue
+                onChange={  () => {}  }
+                items={itemsForSelect}
+            />
+
 
         </div>
     );
@@ -60,3 +112,5 @@ function PageTitle(props: PageTitlePropsType) {
 }
 
 export default App;
+
+

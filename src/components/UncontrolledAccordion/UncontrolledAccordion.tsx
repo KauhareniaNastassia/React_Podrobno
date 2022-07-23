@@ -1,7 +1,14 @@
 import React, {useState} from "react";
+import {ItemType} from "../../App";
+
 
 type AccordionPropsType = {
     titleValue: string
+    collapsed: boolean
+    callBack: () => void
+    items: Array<ItemType>
+    onChange: () => void
+    onClick: () => void
 }
 
 function UncontrolledAccordion(props: AccordionPropsType) {
