@@ -1,8 +1,17 @@
 import React, {useState} from 'react';
 import './App.css';
-import {RatingValueType} from './components/Rating/Rating';
+import {Rating, RatingValueType} from './components/Rating/Rating';
 import {action} from "@storybook/addon-actions";
-import {WithoutValue, WithValue} from "./components/Select/AccSelect";
+import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
+import {NewMessagesCounter, Users,} from "./components/ReactMemo/ReactMemo";
+import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
+import {UncontrolledOnOff} from "./components/OnOff/UncontrolledOnOff";
+import {Input} from "./components/Input/Input";
+import {UncontrolledInput} from "./components/Input/UncontrolledInput";
+import {OnOff} from "./components/OnOff/OnOff";
+import {DifficultCountingExample} from "./components/ReactMemo/UseMemo";
+import {HelpForReactMemoExample} from "./components/ReactMemo/HelpForReactMemo";
+import {LikeUseCallback} from "./components/ReactMemo/Like_UseCallback";
 
 
 export type ItemType = {
@@ -32,20 +41,20 @@ function App() {
     const onClickCallBack = action('some item was clicked')
 
 
-    /*const ModeChanging = () => {
-        return <Accordion titleValue={"Users"}
-                          collapsed={value}
-                          onChange={() => {
-                              setValue(!value)
-                          }}
-                          items={items}
-                          onClick={onClickCallBack}
-        />
-    }*/
+    console.log('Example')
+    const [counter, setCounter] = useState(0)
+    const [users, setUsers] = useState(['Nastassia', 'Lena', 'Lesya', 'Olga'])
+
+    const addUser = () => {
+        const newUsers = [...users, 'Sveta' + new Date().getTime()]
+        setUsers(newUsers)
+    }
+
+
 
     return (
         <div className={"App"}>
-            {/*<Rating value={ratingValue} onClick={setRatingValue}/>
+           {/* <Rating value={ratingValue} onClick={setRatingValue}/>
             <UncontrolledRating/>
 
             <OnOff on={switchOn} onChange={(on) => {
@@ -55,7 +64,7 @@ function App() {
 
             <UncontrolledInput/>
             <Input/>*/}
-            {/*<UncontrolledAccordion titleValue={"Menu"}
+            {/*  <UncontrolledAccordion titleValue={"Menu"}
                                    collapsed={true}
                                    onChange={callBack}
                                    items={items}
@@ -86,8 +95,7 @@ function App() {
             <Select
                 onChange={  () => {}  }
                 items={itemsForSelect}/>*/}
-
-            <WithValue
+            {/*<WithValue
                 onChange={ () => {} }
                 value={'2'}
                 items={itemsForSelect}
@@ -96,8 +104,20 @@ function App() {
             <WithoutValue
                 onChange={  () => {}  }
                 items={itemsForSelect}
-            />
+            />*/}
+            {/*//React.memo
+            <button onClick={() => {setCounter(counter + 1)}}> + </button>
+            <button onClick={addUser}> add user</button>
+            <NewMessagesCounter count={counter}/>
+            <Users users={users}/>*/}
+            /{/*/useMemo
+            <DifficultCountingExample />*/}
 
+            {/*//useMemo helps ReactMemo
+            <HelpForReactMemoExample />*/}
+
+            //useCallback
+            <LikeUseCallback />
 
         </div>
     );

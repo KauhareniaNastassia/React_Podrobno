@@ -7,7 +7,7 @@ type OnOffPropsType = {
 
 
 
-export function UncontrolledOnOff(props: OnOffPropsType) {
+export function UncontrolledOnOffSecret(props: OnOffPropsType) {
 
     //let on = false
 
@@ -63,5 +63,7 @@ export function UncontrolledOnOff(props: OnOffPropsType) {
     )
 
 }
+
+export const UncontrolledOnOff = React.memo(UncontrolledOnOffSecret)
 
 
