@@ -12,6 +12,8 @@ import {OnOff} from "./components/OnOff/OnOff";
 import {DifficultCountingExample} from "./components/ReactMemo/UseMemo";
 import {HelpForReactMemoExample} from "./components/ReactMemo/HelpForReactMemo";
 import {LikeUseCallback} from "./components/ReactMemo/Like_UseCallback";
+import {Counter} from "./components/useState/UseState";
+import {CounterEffect} from "./components/useEffect/Clock";
 
 
 export type ItemType = {
@@ -110,14 +112,24 @@ function App() {
             <button onClick={addUser}> add user</button>
             <NewMessagesCounter count={counter}/>
             <Users users={users}/>*/}
-            /{/*/useMemo
+            {/*/useMemo
             <DifficultCountingExample />*/}
 
             {/*//useMemo helps ReactMemo
             <HelpForReactMemoExample />*/}
 
-            //useCallback
-            <LikeUseCallback />
+           {/* //useCallback
+            <LikeUseCallback />*/}
+
+            {/*//useState
+            <Counter />*/}
+
+           {/* //useEffect
+            <CounterEffect />*/}
+
+            //Clock
+            <CounterEffect />
+
 
         </div>
     );
