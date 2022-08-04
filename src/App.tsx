@@ -14,6 +14,7 @@ import {HelpForReactMemoExample} from "./components/ReactMemo/HelpForReactMemo";
 import {LikeUseCallback} from "./components/ReactMemo/Like_UseCallback";
 import {Counter} from "./components/useState/UseState";
 import {CounterEffect} from "./components/useEffect/Clock";
+import {ClockFromVideo} from "./components/useEffect/ClockFromVideo";
 
 
 export type ItemType = {
@@ -129,6 +130,7 @@ function App() {
 
             //Clock
             <CounterEffect />
+            <ClockFromVideo />
 
 
         </div>

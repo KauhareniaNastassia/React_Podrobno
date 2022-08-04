@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 
 
+
 export const CounterEffect = () => {
 
     const[date, setDate] = useState(new Date())
@@ -8,7 +9,7 @@ export const CounterEffect = () => {
     let time = new Date()
 
     useEffect( () => {
-        setTimeout( () => {
+        setInterval( () => {
             setDate(new Date())
         }, 1000)
     }, [])
