@@ -1,20 +1,12 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Rating, RatingValueType} from './components/Rating/Rating';
-import {action} from "@storybook/addon-actions";
-import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
-import {NewMessagesCounter, Users,} from "./components/ReactMemo/ReactMemo";
+import {RatingValueType, RatingWithState} from "./components/Rating/RatingWithState";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
-import {UncontrolledOnOff} from "./components/OnOff/UncontrolledOnOff";
-import {Input} from "./components/Input/Input";
-import {UncontrolledInput} from "./components/Input/UncontrolledInput";
+import {
+    UncontrolledAccordionWithStateInApp
+} from "./components/UncontrolledAccordion/UncontrolledAccordionWithStateInApp";
 import {OnOff} from "./components/OnOff/OnOff";
-import {DifficultCountingExample} from "./components/ReactMemo/UseMemo";
-import {HelpForReactMemoExample} from "./components/ReactMemo/HelpForReactMemo";
-import {LikeUseCallback} from "./components/ReactMemo/Like_UseCallback";
-import {Counter} from "./components/useState/UseState";
-import {CounterEffect} from "./components/useEffect/Clock";
-import {ClockFromVideo} from "./components/useEffect/ClockFromVideo";
+import {UncontrolledOnOff} from "./components/OnOff/UncontrolledOnOff";
 
 
 export type ItemType = {
@@ -35,103 +27,44 @@ let itemsForSelect = [
 
 function App() {
 
+    // stete for rating from lesson 8
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
-    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+    // stete for uncontrolledAccordion from lesson 8
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
+    // stete for onOff from lesson 9
     let [switchOn, setSwitchOn] = useState<boolean>(false)
-    const [value, setValue] = useState<boolean>(true);
-
-    const callBack = action('accordion mode change event fired')
-    const onClickCallBack = action('some item was clicked')
-
-
-    console.log('Example')
-    const [counter, setCounter] = useState(0)
-    const [users, setUsers] = useState(['Nastassia', 'Lena', 'Lesya', 'Olga'])
-
-    const addUser = () => {
-        const newUsers = [...users, 'Sveta' + new Date().getTime()]
-        setUsers(newUsers)
-    }
-
-
 
     return (
         <div className={"App"}>
-           {/* <Rating value={ratingValue} onClick={setRatingValue}/>
-            <UncontrolledRating/>
 
-            <OnOff on={switchOn} onChange={(on) => {
-                setSwitchOn(on)
-            }}/>
-            <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
+            <PageTitle title={'Cute title^^'}/>
 
-            <UncontrolledInput/>
-            <Input/>*/}
-            {/*  <UncontrolledAccordion titleValue={"Menu"}
-                                   collapsed={true}
-                                   onChange={callBack}
-                                   items={items}
-                                   onClick={onClickCallBack}
-            />*/}
-            {/* //MenuCollapsedMode
-            <Accordion titleValue={"Menu"}
-                       collapsed={true}
-                       onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}
-                       items={items}
-                       onClick={onClickCallBack}
-            />
+            {/* <Accordion titleValue={'Cute Menu'} collapsed={true}/>
+            <Accordion titleValue={'Cute Users'} collapsed={false}/>*/}
 
-            //UserUncollapsedMode
-            <Accordion titleValue={"Users"}
-                       collapsed={false}
-                       onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}
-                       items={items}
-                       onClick={onClickCallBack}
-            />*/}
-            {/*//with value
-            <Select
-                onChange={ () => {} }
-                value={'2'}
-                items={itemsForSelect}/>
+            {/*<Rating value={4} />*/}
 
-            //without value
-            <Select
-                onChange={  () => {}  }
-                items={itemsForSelect}/>*/}
-            {/*<WithValue
-                onChange={ () => {} }
-                value={'2'}
-                items={itemsForSelect}
-            />
+            {/*6 lesson
+            <OnOff />
+            <OnOff />*/}
 
-            <WithoutValue
-                onChange={  () => {}  }
-                items={itemsForSelect}
-            />*/}
-            {/*//React.memo
-            <button onClick={() => {setCounter(counter + 1)}}> + </button>
-            <button onClick={addUser}> add user</button>
-            <NewMessagesCounter count={counter}/>
-            <Users users={users}/>*/}
-            {/*/useMemo
-            <DifficultCountingExample />*/}
+            {/*7 lesson
+            <UncontrolledAccordion titleValue={'Hey'}/>
+            <UncontrolledRating />*/}
 
-            {/*//useMemo helps ReactMemo
-            <HelpForReactMemoExample />*/}
+            {/* 8 lesson
+            <RatingWithState value={ratingValue}
+                             onClick={setRatingValue}/>
+            <UncontrolledAccordionWithStateInApp titleValue={"Bla"}
+                                                 collapsed={accordionCollapsed}
+                                                 onChange={() => {
+                                                     setAccordionCollapsed(!accordionCollapsed)
+                                                 }}/>*/}
 
-           {/* //useCallback
-            <LikeUseCallback />*/}
-
-            {/*//useState
-            <Counter />*/}
-
-           {/* //useEffect
-            <CounterEffect />*/}
-
-            //Clock
-            <CounterEffect />
-            <ClockFromVideo />
-
+            9 lesson
+            <OnOff on={switchOn}
+                   onChange={setSwitchOn}/>
+            <UncontrolledOnOff onChange={setSwitchOn} />
 
         </div>
     );
@@ -142,6 +75,7 @@ type PageTitlePropsType = {
 }
 
 function PageTitle(props: PageTitlePropsType) {
+    console.log('PageTitle rendering')
     return <h1>{props.title}</h1>
 }
 

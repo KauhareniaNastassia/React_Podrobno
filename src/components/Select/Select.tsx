@@ -1,5 +1,4 @@
 import React, {useState, KeyboardEvent, useEffect} from "react";
-import {RatingValueType} from "../Rating/Rating";
 import css from "./Select.module.css"
 
 export type ItemType = {
