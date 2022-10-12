@@ -1,6 +1,4 @@
-import React, {useReducer, useState} from "react";
-import {ItemType} from "../../App";
-import {reducer, TOGGLE_CONSTANT} from "./UncontrolledAccordion_Reducer";
+import React, {useState} from "react";
 
 
 type AccordionPropsType = {

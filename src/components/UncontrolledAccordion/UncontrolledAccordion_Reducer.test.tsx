@@ -1,6 +1,9 @@
-import {reducer, StateType, TOGGLE_CONSTANT} from "./UncontrolledAccordion_Reducer";
+import React from 'react'
+import {StateType} from "./UncontrolledAccordion_Reducer";
+import {reducer, TOGGLE_CONSTANT} from "./reducer";
 
-test('reducer should change value to opposite value', () => {
+
+ test('collapsed should be true', () => {
 
     const state: StateType = {
         collapsed: false
@@ -8,11 +11,8 @@ test('reducer should change value to opposite value', () => {
 
     const newState = reducer(state, {type: TOGGLE_CONSTANT})
 
-
-
-    expect(newState).toBe(true)
+     expect(newState.collapsed).toBe(true)
 })
-
 
 
 
@@ -24,19 +24,5 @@ test('collapsed should be false', () => {
 
     const newState = reducer(state, {type: TOGGLE_CONSTANT})
 
-
-
-    expect(newState).toBe(false)
-})
-
-test('reducer should be fake', () => {
-
-    const state: StateType = {
-        collapsed: false
-    }
-
-    expect( () => {
-        reducer(state, {type: 'FAKE_ACTION'})
-    } ).toThrowError()
-
+    expect(newState.collapsed).toBe(false)
 })

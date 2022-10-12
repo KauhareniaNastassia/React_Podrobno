@@ -17,7 +17,7 @@ export const UncontrolledInput = () => {
     );
 };       //такого сценария лучше избегать
 
-
+//------------------------------------------------------------------
 
 export const GetValueOfUncontrolledInput = () => {
     const [value, setValue] = useState('')
