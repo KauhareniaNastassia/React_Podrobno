@@ -3,7 +3,8 @@ import {ComponentMeta, Story} from '@storybook/react';
 import {Accordion, AccordionPropsType} from "./Accordion";
 import {action} from "@storybook/addon-actions";
 import {UncontrolledAccordionWithStateInApp} from "../UncontrolledAccordion/UncontrolledAccordionWithStateInApp";
-import {UncontrolledAccordionWithReducer} from "../UncontrolledAccordion/UncontrolledAccordion_Reducer.test";
+import {UncontrolledAccordionWithReducer} from "../UncontrolledAccordion/UncontrolledAccordion_Reducer";
+
 
 export default {
     title: 'Accordion',
@@ -69,7 +70,7 @@ export const PrimaryModeChanging = ModeChanging.bind({});
 
 //------------------------------------------------------------------------
 
-const ModeChangingWithReducer: Story<AccordionPropsType> = () => {
+/*const ModeChangingWithReducer: Story<AccordionPropsType> = () => {
 
     const [value, setValue] = useState<boolean>(true)
 
@@ -86,7 +87,7 @@ const ModeChangingWithReducer: Story<AccordionPropsType> = () => {
         ]}/>
 };
 
-export const PrimaryModeChangingWithReducer = ModeChangingWithReducer.bind({});
+export const PrimaryModeChangingWithReducer = ModeChangingWithReducer.bind({});*/
 
 
 
